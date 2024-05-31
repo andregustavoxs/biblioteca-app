@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PublisherRequest extends FormRequest
+class PublisherUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,11 @@ class PublisherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:5',
-            'email' => 'required|string|email',
-            'phone' => 'required|numeric',
-            'website' => 'required|url',
-            'founded_year' => 'nullable|numeric',
+            'name' => 'required|string|min:5|unique:publishers,name,' . $this->publisher->id,
+            'email' => 'required|string|unique:publishers,email,' . $this->publisher->id,
+            'phone' => 'required|string',
+            'website' => 'required|url|unique:publishers,website,' . $this->publisher->id,
+            'founded_year' => 'nullable|numeric|digits:4',
         ];
     }
 }

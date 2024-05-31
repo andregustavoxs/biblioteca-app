@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PublisherRequest;
+use App\Http\Requests\PublisherStoreRequest;
+use App\Http\Requests\PublisherUpdateRequest;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PublisherController extends Controller
 {
@@ -31,9 +33,13 @@ class PublisherController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PublisherRequest $request)
+    public function store(PublisherStoreRequest $request)
     {
-        return 'olá store';
+        $input = $request->validated();
+
+        Publisher::create($input);
+
+        return Redirect::route('publishers.index');
     }
 
     /**
@@ -49,15 +55,20 @@ class PublisherController extends Controller
      */
     public function edit(Publisher $publisher)
     {
-        //
+        return view('publisher.edit', compact('publisher'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Publisher $publisher)
+    public function update(PublisherUpdateRequest $request, Publisher $publisher)
     {
-        //
+        $input = $request->validated();
+
+        $publisher->fill($input);
+        $publisher->save();
+
+        return Redirect::route('publishers.index');
     }
 
     /**
@@ -65,6 +76,8 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        //
+        $publisher->delete();
+
+        return Redirect::route('publishers.index');
     }
 }
