@@ -5,11 +5,11 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1"> {{ $publisher->name }}</h1>
-                    <p class="leading-relaxed"> E-mail: {{ $publisher->email }}</p>
-                    <p class="leading-relaxed"> Telefone: {{ $publisher->phone }}</p>
-                    <p class="leading-relaxed"> Website: {{ $publisher->website }}</p>
-                    <p class="leading-relaxed"> Ano de Fundação: {{ $publisher->founded_year }}</p>
+                    <h1 class="text-gray-900 text-4xl title-font font-medium mb-3 p-2 bg-gray-100 rounded"> {{ $publisher->name }}</h1>
+                    <p class="leading-relaxed text-gray-700 p-2 bg-gray-200 rounded"> <strong class="text-gray-900">E-mail:</strong> {{ $publisher->email }}</p>
+                    <p class="leading-relaxed text-gray-700 p-2 bg-gray-200 rounded"> <strong class="text-gray-900">Telefone:</strong> {{ $publisher->phone }}</p>
+                    <p class="leading-relaxed text-gray-700 p-2 bg-gray-200 rounded"> <strong class="text-gray-900">Website:</strong> {{ $publisher->website }}</p>
+                    <p class="leading-relaxed text-gray-700 p-2 bg-gray-200 rounded"> <strong class="text-gray-900">Ano de Fundação:</strong> {{ $publisher->founded_year }}</p>
                     <br/>
                     @if($publisher->books->isNotEmpty())
                         <table class="table-auto w-full">
@@ -20,7 +20,7 @@
                             </thead>
                             <tbody>
                             @foreach($publisher->books as $book)
-                                <tr>
+                                <tr @if($loop->even) class="bg-gray-100" @endif>
                                     <td class="border px-4 py-2">{{$book->name}}</td>
                                 </tr>
                             @endforeach
