@@ -24,6 +24,21 @@
                             </div>
                         </div>
 
+                        <div class="relative">
+                            <label for="publisher_id" class="leading-7 text-sm text-gray-600">Editora*</label>
+                            <select id="publisher_id" name="publisher_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                @foreach($publishers as $publisher)
+                                    <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="text-sm text-red-300">
+                            @error('publisher_id')
+                            {{ $message }}
+                            @enderror
+                        </div>
+
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Data de Publicação</label>

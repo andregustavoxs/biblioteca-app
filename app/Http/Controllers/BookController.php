@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookStoreRequest;
 use App\Http\Requests\BookUpdateRequest;
 use App\Models\Book;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book.create');
+        $publishers = Publisher::all();
+
+        return view('book.create', compact('publishers'));
     }
 
     /**
@@ -62,7 +65,9 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('book.edit', compact('book'));
+        $publishers = Publisher::all();
+
+        return view('book.edit', compact('book', 'publishers'));
     }
 
     /**

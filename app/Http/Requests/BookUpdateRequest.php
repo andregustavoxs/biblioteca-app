@@ -27,6 +27,7 @@ class BookUpdateRequest extends FormRequest
             'isbn' => 'required|string',
             'summary' => 'nullable|string',
             'cover' => 'nullable|file',
+            'publisher_id' => 'required|exists:publishers,id',
         ];
     }
 }

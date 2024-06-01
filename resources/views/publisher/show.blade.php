@@ -1,7 +1,6 @@
 @extends('layouts.template')
 
 @section('content')
-
     <section class="text-gray-600 overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
@@ -11,6 +10,17 @@
                     <p class="leading-relaxed"> Telefone: {{ $publisher->phone }}</p>
                     <p class="leading-relaxed"> Website: {{ $publisher->website }}</p>
                     <p class="leading-relaxed"> Ano de Fundação: {{ $publisher->founded_year }}</p>
+                    <br/>
+                    <h2 class="text-gray-900 text-xl title-font font-medium mb-1">Livros Publicados:</h2>
+                    @if($publisher->books->isNotEmpty())
+                            <ul>
+                                @foreach($publisher->books as $book)
+                                    <li>Nome do Livro: {{$book->name}}</li>
+                                @endforeach
+                            </ul>
+                    @else
+                        <p class="leading-relaxed">Essa Editora ainda não publicou nenhum livro.</p>
+                    @endif
 
                     <div class="flex border-t-2 border-gray-100 mt-6 pt-6">
                         <a href="{{ route('publishers.index') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Voltar</a>

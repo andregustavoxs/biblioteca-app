@@ -8,6 +8,10 @@
                      src="{{ \Illuminate\Support\Facades\Storage::url($book->cover) }}">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $book->name }}</h1>
+
+                    @if($book->publisher)
+                        <p class="leading-relaxed"> Editora: {{ $book->publisher->name }}</p>
+                    @endif
                     <p class="leading-relaxed"> Data de Publicação: {{ date('d/m/Y', strtotime($book->publishing_date)) }}</p>
                     <p class="leading-relaxed"> ISBN: {{ $book->isbn }}</p>
                     <p class="leading-relaxed"> Resumo: {{ $book->summary }}</p>
