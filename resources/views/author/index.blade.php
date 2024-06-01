@@ -38,17 +38,20 @@
                             <td class="px-4 py-3"> {{ date('d/m/Y', strtotime($author->birth_date)) }}</td>
                             <td class="px-4 py-3"> {{ $author->nationality }}</td>
                             <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
-                                <a href="{{ route('authors.show', $author->id) }}"
-                                   class="mt-3 text-indigo-500 inline-flex items-center">Visualizar</a>
-                                <a href="{{ route('authors.edit', $author->id) }}"
-                                   class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
-                                <form method="POST" action="{{ route('authors.destroy', $author->id) }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
-                                        Deletar
-                                    </button>
-                                </form>
+                                <div class="flex items-center justify-end space-x-3">
+                                    <a href="{{ route('authors.show', $author->id) }}"
+                                       class="mt-3 text-indigo-500 inline-flex items-center">Visualizar</a>
+                                    <a href="{{ route('authors.edit', $author->id) }}"
+                                       class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
+                                    <form method="POST" action="{{ route('authors.destroy', $author->id) }}"
+                                          class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
+                                            Deletar
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

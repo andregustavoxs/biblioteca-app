@@ -41,17 +41,19 @@
                             <td class="px-4 py-3"> {{ $book->name }}</td>
                             <td class="px-4 py-3"> {{ date('d/m/Y', strtotime($book->publishing_date)) }}</td>
                             <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
-                                <a href="{{ route('books.show', $book->id) }}"
-                                   class="mt-3 text-indigo-500 inline-flex items-center">Visualizar</a>
-                                <a href="{{ route('books.edit', $book->id) }}"
-                                   class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
-                                <form method="POST" action="{{ route('books.destroy', $book->id) }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
-                                        Deletar
-                                    </button>
-                                </form>
+                                <div class="flex items-center justify-end space-x-3">
+                                    <a href="{{ route('books.show', $book->id) }}"
+                                       class="mt-3 text-indigo-500 inline-flex items-center">Visualizar</a>
+                                    <a href="{{ route('books.edit', $book->id) }}"
+                                       class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
+                                    <form method="POST" action="{{ route('books.destroy', $book->id) }}" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
+                                            Deletar
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

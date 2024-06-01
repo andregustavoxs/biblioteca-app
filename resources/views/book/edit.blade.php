@@ -13,58 +13,66 @@
                     @method('PUT')
 
                     <div class="flex flex-wrap">
-                        <div class="p-2 w-1/2">
+                        <div class="flex w-full">
+                            <div class="p-2 w-1/2">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 text-sm text-gray-600">Nome do Livro*</label>
+                                    <input type="text" id="name" name="name" value="{{ old('name', $book->name)}}"
+                                           class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                </div>
+                                <div class="text-sm text-red-300">
+                                    @error('name')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Nome do Livro*</label>
-                                <input type="text" id="name" name="name" value="{{ old('name', $book->name)}}"
-                                       class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <label for="publisher_id" class="leading-7 text-sm text-gray-600">Editora*</label>
+                                <select id="publisher_id" name="publisher_id"
+                                        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    @foreach($publishers as $publisher)
+                                        <option
+                                            value="{{ $publisher->id }}" {{ $publisher->id == $book->publisher_id ? 'selected' : '' }}>{{ $publisher->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="text-sm text-red-300">
-                                @error('name')
+                                @error('publisher_id')
                                 {{ $message }}
                                 @enderror
                             </div>
                         </div>
 
-                        <div class="relative">
-                            <label for="publisher_id" class="leading-7 text-sm text-gray-600">Editora*</label>
-                            <select id="publisher_id" name="publisher_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                @foreach($publishers as $publisher)
-                                    <option value="{{ $publisher->id }}" {{ $publisher->id == $book->publisher_id ? 'selected' : '' }}>{{ $publisher->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="text-sm text-red-300">
-                            @error('publisher_id')
-                            {{ $message }}
-                            @enderror
+                        <div class="flex w-full">
+                            <div class="p-2 w-1/2">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 text-sm text-gray-600">Data de Publicação</label>
+                                    <input type="date" id="publishing_date" name="publishing_date"
+                                           value="{{ old('publishing_date', $book->publishing_date)}}"
+                                           class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                                </div>
+                                <div class="text-sm text-red-300">
+                                    @error('publishing_date')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="p-2 w-1/2">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 text-sm text-gray-600">IBSN*</label>
+                                    <input type="text" id="isbn" name="isbn" value="{{ old('isbn', $book->isbn)}}"
+                                           class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                </div>
+                                <div class="text-sm text-red-300">
+                                    @error('isbn')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="p-2 w-1/2">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Data de Publicação</label>
-                                <input type="date" id="publishing_date" name="publishing_date" value="{{ old('publishing_date', $book->publishing_date)}}"
-                                       class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                            </div>
-                            <div class="text-sm text-red-300">
-                                @error('publishing_date')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="p-2 w-1/2">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">IBSN*</label>
-                                <input type="text" id="isbn" name="isbn" value="{{ old('isbn', $book->isbn)}}"
-                                       class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            </div>
-                            <div class="text-sm text-red-300">
-                                @error('isbn')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="p-2 w-1/2">
                             <div class="relative">

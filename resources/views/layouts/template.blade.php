@@ -74,7 +74,7 @@
     <div class="bg-gray-100">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row items-center justify-center">
             <p class="text-gray-500 text-sm text-center sm:text-left">
-                <a href="https://a3servicosweb.com/" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">© Copyright 2024 A3 Serviços Web - Todos os direitos reservados</a>
+                <a href="https://a3servicosweb.com/" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">© Copyright 2024 - A3 Serviços Web - Todos os direitos reservados</a>
             </p>
         </div>
     </div>
