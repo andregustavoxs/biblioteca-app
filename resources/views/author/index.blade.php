@@ -32,7 +32,7 @@
                     <tbody class="divide-y">
 
                     @foreach($authors as $author)
-                        <tr>
+                        <tr @if($loop->even) class="bg-gray-100" @endif>
                             <td class="px-4 py-3">{{ $author->id }}</td>
                             <td class="px-4 py-3"> {{ $author->name }}</td>
                             <td class="px-4 py-3"> {{ date('d/m/Y', strtotime($author->birth_date)) }}</td>

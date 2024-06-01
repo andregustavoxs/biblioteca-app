@@ -23,7 +23,7 @@
             <span class="ml-3 text-xl">Biblioteca</span>
         </a>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Livro</a>
+            <a href="{{ route('books.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Livro</a>
             <a href="{{ route('authors.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Autor</a>
             <a href="{{ route('publishers.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Editora</a>
         </div>
