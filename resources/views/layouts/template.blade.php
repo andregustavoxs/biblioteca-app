@@ -75,6 +75,5 @@
     </div>
 </footer>
 
-<script src="{{ asset('public/custom.js') }}"></script>
 </body>
 </html>
