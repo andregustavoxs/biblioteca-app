@@ -43,6 +43,25 @@
                             </div>
                         </div>
 
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="author_id" class="leading-7 text-sm text-gray-600">Autor*</label>
+                                <select id="author_id" name="author_id[]"
+                                        class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        multiple>
+                                    @foreach($authors as $author)
+                                        <option value="{{ $author->id }}">{{ $author->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-sm text-red-300">
+                                @error('author_id')
+                                {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+
+
                         <div class="flex w-full">
                             <div class="p-2 w-1/2">
                                 <div class="relative">
