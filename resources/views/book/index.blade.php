@@ -46,10 +46,14 @@
                                        class="mt-3 text-indigo-500 inline-flex items-center">Visualizar</a>
                                     <a href="{{ route('books.edit', $book->id) }}"
                                        class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
+
                                     <form method="POST" action="{{ route('books.destroy', $book->id) }}" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
+
+                                        <x-alert/>
+
+                                        <button type="submit" class="delete-button mt-3 text-indigo-500 inline-flex items-center">
                                             Deletar
                                         </button>
                                     </form>

@@ -47,7 +47,10 @@
                                           class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">
+
+                                        <x-alert/>
+
+                                        <button type="submit" class="delete-button mt-3 text-indigo-500 inline-flex items-center">
                                             Deletar
                                         </button>
                                     </form>

@@ -4,7 +4,7 @@
     <section class="text-gray-600 overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" style="width: 350px"
                      src="{{ \Illuminate\Support\Facades\Storage::url($book->cover) }}">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h1 class="text-gray-900 text-4xl title-font font-medium mb-3 p-2 bg-gray-100 rounded">{{ $book->name }}</h1>
@@ -38,8 +38,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                    @else
-                        <p class="leading-relaxed">Este livro não tem nenhum autor ainda.</p>
                     @endif
                 </div>
 

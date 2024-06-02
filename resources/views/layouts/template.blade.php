@@ -13,6 +13,7 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body>
 <header class="text-gray-600">
@@ -73,5 +74,7 @@
         </div>
     </div>
 </footer>
+
+<script src="{{ asset('public/custom.js') }}"></script>
 </body>
 </html>
