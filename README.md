@@ -1,5 +1,7 @@
 # Projeto Biblioteca Digital
 
+![Livros na prateleira](https://github.com/andregustavoxs/biblioteca-app/assets/125318522/7748975c-7a8b-4e1b-a23f-57d628f3114f)
+
 Este projeto é uma aplicação web que serve como uma biblioteca digital. Ele permite aos usuários visualizar informações detalhadas sobre livros, autores e editoras disponíveis.
 
 ## Recursos
