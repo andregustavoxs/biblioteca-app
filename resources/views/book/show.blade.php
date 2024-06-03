@@ -42,7 +42,7 @@
                 </div>
 
                     <div class="p-2 border-t-2 border-gray-100 w-full flex justify-end">
-                    <a href="{{ route('books.index') }}" type="submit"
+                    <a href="{{ url()->previous() }}" type="submit"
                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mr-2">
                         Voltar
                     </a>
