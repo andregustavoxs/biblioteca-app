@@ -12,6 +12,10 @@ Este projeto é um CRUD objetivando simular uma biblioteca digital. Ele permite 
 
 - **Listagem de Editoras**: Para cada livro, os usuários podem ver uma lista de editoras associadas.
 
+## Imagens
+
+<img width="1470" alt="Captura de Tela 2024-06-09 às 16 08 27" src="https://github.com/andregustavoxs/biblioteca-app/assets/125318522/d7e5ed3f-cdfb-456b-b105-0cbfcaed5392">
+
 ## Tecnologias Utilizadas
 
 O projeto é construído usando PHP com o framework Laravel, JavaScript, HTML5 e CSS3 com o Tailwind.
